@@ -15,7 +15,7 @@ services:
     networks:
       - frenehard
     volumes:
-        - db_data:/var/lib/mysql  
+        - ${WEBAPP_STORAGE_HOME}/volumes/mysql2:/var/lib/mysql
   wordpress:
     image: wordpress:latest
     ports:
@@ -29,7 +29,7 @@ services:
       - WORDPRESS_DB_PASSWORD=wordpress
       - WORDPRESS_DB_NAME=wordpress
     volumes:
-        - db_data:
+        - ${WEBAPP_STORAGE_HOME}/volumes/wordpress2/html:/var/www/html
 
 networks:
     frenehard:
